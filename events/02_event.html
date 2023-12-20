@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <h1>Vaibhav Baneshi</h1>
+</body>
+<script>
+
+    function changeHeading() {
+        document.querySelector('h1').innerHTML = "Baneshi Vaibhav"
+    }
+
+    const buttonStart = document.createElement('button')
+    buttonStart.innerHTML = "Start"
+    buttonStart.style.height = "50px"
+    buttonStart.style.width = "50px" 
+
+    const buttonStop = document.createElement('button')
+    buttonStop.innerHTML = "Stop"
+    buttonStop.style.height = "50px"
+    buttonStop.style.width = "50px"
+
+    document.body.appendChild(buttonStart)
+    document.body.appendChild(buttonStop)
+    let setTimeOut = ""
+
+    buttonStart.addEventListener('click', function() {
+        console.log("setTimeOut");
+        setTimeOut = setTimeout(changeHeading, 2000)
+    })
+
+    buttonStop.addEventListener('click', function() {
+        console.log("clearTimeOut");
+        clearTimeout(setTimeOut)
+    })
+</script>
+</html>

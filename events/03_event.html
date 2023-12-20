@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <h1>Vaibhav Baneshi</h1>
+    <button class="start" style="padding: 20px">Start</button>
+    <button class="stop" style="padding: 20px">Stop</button>
+</body>
+<script>
+    let number = 1;
+    let setinterval = ''
+    const heading  = document.querySelector('h1')
+    const buttonStart = document.querySelector('.start')
+    const buttonStop = document.querySelector('.stop')
+
+    buttonStart.addEventListener('click', function() {
+        console.log(`Started`);
+        setinterval = setInterval(selectName, 1000)
+    })
+
+    buttonStop.addEventListener('click', function() {
+        console.log(`Stopped`);
+        clearInterval(setinterval)
+    })
+
+
+    function selectName() {
+
+        if(number%2 === 0)
+            printName("Baneshi Vaibhav")
+
+        else    
+            printName("Vaibhav Baneshi")
+
+        number++;
+    }
+
+    function printName(name) {
+        console.log(name,number);
+        heading.innerHTML = name
+    }
+    
+</script>
+</html>
