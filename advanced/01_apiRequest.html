@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+   <h1>API Request and V8 Engine </h1> 
+   <img id = "avatar" src="" alt="">
+    <p class="p"></p>
+   <button class="button" style="padding: 20px;">Request Data</button>
+</body>
+<script>
+
+    const button = document.querySelector('.button').addEventListener('click', function() {
+
+        const requestUrl = 'https://api.github.com/users/vaibhavbaneshi'
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', requestUrl)
+        xhr.send() 
+        const p = document.querySelector('.p')
+        const avatar = document.querySelector('#avatar')
+
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState === 4) {
+                const data = JSON.parse(this.response)
+                avatar.src = data.avatar_url
+                p.innerHTML = `Followers of ${data.login}: ${data.followers}`
+            }
+        }
+    }, false)
+
+</script>
+</html>
